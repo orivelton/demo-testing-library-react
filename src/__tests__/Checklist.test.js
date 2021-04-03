@@ -1,30 +1,42 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import Checklist from '../components/Checklist';
 
+const props = ['Eat', 'Code', 'Sleep'];
+
 describe('Checklist component unit test', () => {
   test('Render Checklist component', () => {
-    const { getByRole, debug } = render(<Checklist options={['Eat', 'Code', 'Sleep']}/>);
+    const { getByRole, debug } = render(<Checklist options={props}/>);
+
     const eatCheckbox = getByRole('checkbox', { name: 'Eat' });
     const codeCheckbox = getByRole('checkbox', { name: 'Code' });
     const sleepCheckbox = getByRole('checkbox', { name: 'Sleep' });
+    const result = getByRole('result');
 
-    screen.logTestingPlaygroundURL()
+    screen.logTestingPlaygroundURL();
 
     expect(eatCheckbox).toBeInTheDocument();
     expect(codeCheckbox).toBeInTheDocument();
     expect(sleepCheckbox).toBeInTheDocument();
-
-    fireEvent.click(eatCheckbox);
-    expect(getByText(/0/i))
-    fireEvent.click(codeCheckbox);
-    fireEvent.click(sleepCheckbox);
-    expect(eatCheckbox.checked).toEqual(true);
     
-    expect(codeCheckbox.checked).toEqual(true);
-    expect(sleepCheckbox.checked).toEqual(true);
+    // eatCheckbox
+    fireEvent.click(eatCheckbox);
+    expect(eatCheckbox.checked).toEqual(true);
+    expect(+result.value).toEqual(1);
 
+    //codeCheckbox
+    fireEvent.click(codeCheckbox);
+    expect(codeCheckbox.checked).toEqual(true);
+    expect(+result.value).toEqual(2);
+
+    //sleepCheckbox
+    fireEvent.click(sleepCheckbox);
+    expect(sleepCheckbox.checked).toEqual(true);
+    expect(+result.value).toEqual(3);
+    
+    //eatCheckbox
     fireEvent.click(eatCheckbox);
     expect(eatCheckbox.checked).toEqual(false);
+    // expect(+result.value).toEqual(2);
 
     //yarn test --coverage  
   })

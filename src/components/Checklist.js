@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import '../assets/scss/Checklist.scss'
+import '../assets/scss/Checklist.scss';
 
 export default function Checklist({ options }) {
   const [checked, setchecked] = useState(0);
 
   const handleCheck = ({ target }) => {
-    target.checked ? setchecked(prev => prev + 1) : setchecked(prev => prev - 1)
+    target.checked ? setchecked(prev => prev + 1) : setchecked(prev => prev - 1);
   }
 
   return (
@@ -21,7 +21,7 @@ export default function Checklist({ options }) {
       }
       < hr />
       <p>
-        Total: <input type="number" value={checked} disabled />
+        Total: <input type="number" value={checked} role="result" disabled />
       </p>
     </div>
     
@@ -30,4 +30,4 @@ export default function Checklist({ options }) {
 
 Checklist.propTypes = {
   options: PropTypes.array.isRequired
-}
+};
