@@ -1,9 +1,9 @@
 import './assets/scss/App.scss';
-import Login from './components/Login';
+import Checklist from './components/Checklist';
 
 function App() {
   return (
-    <Login />
+    <Checklist options={['Eat', 'Sleep', 'Code', 'Repeat']} />
   );
 }
 
