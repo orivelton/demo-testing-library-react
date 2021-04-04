@@ -12,7 +12,7 @@ describe('Checklist component unit test', () => {
     const sleepCheckbox = getByRole('checkbox', { name: 'Sleep' });
     const result = getByRole('result');
 
-    screen.logTestingPlaygroundURL();
+    // screen.logTestingPlaygroundURL();
 
     expect(eatCheckbox).toBeInTheDocument();
     expect(codeCheckbox).toBeInTheDocument();
