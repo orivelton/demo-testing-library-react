@@ -21,7 +21,7 @@ export default function Checklist({ options }) {
       }
       < hr />
       <p>
-        Total: <input type="number" value={checked} role="result" disabled />
+        Total: <input type="number" value={checked} disabled />
       </p>
     </div>
     

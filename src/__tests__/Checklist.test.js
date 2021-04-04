@@ -10,13 +10,14 @@ describe('Checklist component unit test', () => {
     const eatCheckbox = getByRole('checkbox', { name: 'Eat' });
     const codeCheckbox = getByRole('checkbox', { name: 'Code' });
     const sleepCheckbox = getByRole('checkbox', { name: 'Sleep' });
-    const result = getByRole('result');
+    const result = getByRole('spinbutton');
 
     // screen.logTestingPlaygroundURL();
 
     expect(eatCheckbox).toBeInTheDocument();
     expect(codeCheckbox).toBeInTheDocument();
     expect(sleepCheckbox).toBeInTheDocument();
+    expect(result).toBeInTheDocument();
     
     // eatCheckbox
     fireEvent.click(eatCheckbox);
@@ -36,7 +37,7 @@ describe('Checklist component unit test', () => {
     //eatCheckbox
     fireEvent.click(eatCheckbox);
     expect(eatCheckbox.checked).toEqual(false);
-    // expect(+result.value).toEqual(2);
+    expect(+result.value).toEqual(2);
 
     //yarn test --coverage  
   })
