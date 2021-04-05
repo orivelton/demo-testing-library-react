@@ -5,8 +5,7 @@ import Checklist from '../components/Checklist';
 
 const props = ['Eat', 'Code', 'Sleep'];
 
-
-describe('Checklist component unit test', () => {
+describe('Checklist component', () => {
   test('Render Checklist component', () => {
     //yarn test --coverage --watchAll
     const { getByRole, debug } = render(<Checklist options={props}/>);
