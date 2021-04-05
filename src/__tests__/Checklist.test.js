@@ -1,10 +1,14 @@
+
+
 import { fireEvent, render, screen } from '@testing-library/react';
 import Checklist from '../components/Checklist';
 
 const props = ['Eat', 'Code', 'Sleep'];
 
+
 describe('Checklist component unit test', () => {
   test('Render Checklist component', () => {
+    //yarn test --coverage --watchAll
     const { getByRole, debug } = render(<Checklist options={props}/>);
 
     const eatCheckbox = getByRole('checkbox', { name: 'Eat' });
@@ -39,7 +43,7 @@ describe('Checklist component unit test', () => {
     expect(eatCheckbox.checked).toEqual(false);
     expect(+result.value).toEqual(2);
 
-    //yarn test --coverage  
+    //yarn test --coverage --watchAll
   })
 })
 
